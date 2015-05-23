@@ -1,0 +1,47 @@
+- name: "Activate Ruby {{rbenv_ruby_version}} and Setup Gems"
+  shell: "{{item}}"
+  args:
+    executable: /bin/bash
+    chdir: /vagrant
+  environment:
+    PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
+  with_items:
+  - gem i bundler
+  - rbenv rehash
+  - bundle install
+
+- name: Drop DB
+  shell: rake db:drop
+  sudo: false
+  args:
+    executable: /bin/bash
+    chdir: /vagrant
+  environment:
+    PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
+
+- name: Create DB
+  shell: rake db:create
+  sudo: false
+  args:
+    executable: /bin/bash
+    chdir: /vagrant
+  environment:
+    PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
+
+- name: Migrate DB
+  shell: rake db:migrate
+  sudo: false
+  args:
+    executable: /bin/bash
+    chdir: /vagrant
+  environment:
+    PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
+
+- name: Shoppe setup DB
+  shell: rake shoppe:setup
+  sudo: false
+  args:
+    executable: /bin/bash
+    chdir: /vagrant
+  environment:
+    PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
