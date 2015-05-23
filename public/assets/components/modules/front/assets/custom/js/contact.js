@@ -1,6 +1,6 @@
 if (typeof google != 'undefined')
 {
-	var map_latlng = new google.maps.LatLng(47.06285,21.943721);
+	var map_latlng = new google.maps.LatLng(50.093559, 36.259452);
 	var map_options = {
 			zoom: 1,
 			center: map_latlng,
@@ -12,10 +12,10 @@ if (typeof google != 'undefined')
 			disableDefaultUI: true,
 			scrollwheel: false,
 			styles: [{
-				stylers: [{ 
+				stylers: [{
 					saturation: -20
-				}, { 
-					hue: themerPrimaryColor 
+				}, {
+					hue: themerPrimaryColor
 				}]
 			}, {
 				elementType: "labels.text.fill",
@@ -49,7 +49,7 @@ if (typeof google != 'undefined')
 
 function initializeMap(el, options)
 {
-	if (typeof google == 'undefined') 
+	if (typeof google == 'undefined')
 		return false;
 
 	var map = new google.maps.Map(document.getElementById(el), options);

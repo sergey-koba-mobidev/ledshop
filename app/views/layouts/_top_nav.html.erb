@@ -1,0 +1,64 @@
+<!-- Top navbar (note: add class "navbar-hidden" to close the navbar by default) -->
+<div class="navbar main hidden-print">
+
+  <div class="secondary">
+    <div class="container-960">
+
+      <!-- Menu Toggle Button -->
+      <button type="button" class="btn btn-navbar visible-phone pull-right">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- // Menu Toggle Button END -->
+
+      <ul class="topnav pull-left">
+        <li><a href="" class="glyphicons search single-icon"><i></i></a></li>
+      </ul>
+
+      <ul class="topnav pull-right">
+
+        <li class="hidden-phone follow">
+          <span>Follow us</span>
+          <a href="" class="fa fa-facebook"></a>
+          <a href="" class="fa fa-twitter"></a>
+          <a href="" class="fa fa-youtube"></a>
+          <a href="" class="fa fa-google-plus"></a>
+        </li>
+        <li class="inverse"><a href="login.html?lang=en" class="glyphicons unlock no-ajaxify"><i></i> Войти</a></li>
+        <li class="primary"><a href="signup.html?lang=en" class="glyphicons user_add no-ajaxify"><i></i> Зарегистрироваться</a></li>
+      </ul>
+      <div class="clearfix"></div>
+
+    </div>
+  </div>
+
+  <div class="container-960">
+
+    <!-- Brand -->
+    <a href="<%= root_path %>" class="appbrand pull-left"><span class="text-primary">LED</span> SHOP</a>
+
+    <ul class="topnav pull-right">
+
+      <li class="dropdown dd-1 active">
+        <a href="" data-toggle="dropdown">Продукция <span class="caret"></span></a>
+        <ul class="dropdown-menu pull-left">
+          <li class=""><a href="index.html?lang=en">Торговое освещение</a></li>
+          <li class=""><a href="index_2.html?lang=en">Освещение для офисов</a></li>
+          <li class=""><a href="index_slider.html?lang=en">Архитектурное освещение</a></li>
+          <li class=" active"><a href="index_slider_fullwidth.html?lang=en">Уличное светодиоидное освещение</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html?lang=en">Сервисы</a></li>
+      <li><a href="pricing.html?lang=en">Новости</a></li>
+      <li><a href="pricing.html?lang=en">Доставка</a></li>
+      <li><a href="<%= contacts_path %>">Контакты</a></li>
+
+    </ul>
+    <div class="clearfix"></div>
+    <!-- // Top Menu Right END -->
+
+  </div>
+
+</div>
+<!-- Top navbar END -->

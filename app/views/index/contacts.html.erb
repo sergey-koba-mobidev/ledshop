@@ -1,0 +1,64 @@
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.contact.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="http://maps.google.com/maps/api/js?v=3.5&amp;sensor=false"></script>
+    <script src="/assets/components/modules/front/assets/custom/js/contact.js?v=v2.3.0"></script>
+<% end %>
+
+<div id="contact_gmap"></div>
+<div class="container-960 innerT">
+
+  <h3 class="glyphicons google_maps"><i></i>Contact</h3>
+  <div class="separator bottom"></div>
+
+  <div class="row">
+    <div class="col-md-7">
+      <form class="row margin-none">
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" class="form-control col-md-12" name="name" placeholder="YOUR NAME">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control col-md-12" name="phone" placeholder="PHONE">
+          </div>
+        </div>
+
+        <div class="separator bottom"></div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <textarea name="message" class="form-control" rows="5" placeholder="YOUR MESSAGE"></textarea>
+          </div>
+        </div>
+
+        <div class="separator bottom"></div>
+
+        <div class="right">
+          <button class="btn btn-primary btn-icon glyphicons envelope"><i></i> Send message</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <div class="well margin-none inverse">
+        <address class="margin-none">
+          <h2>John Doe</h2>
+          <strong>Business manager</strong> at
+          <strong><a href="#">Business</a></strong><br>
+          <abbr title="Work email">e-mail:</abbr> <a href="mailto:#">john.doe@mybiz.com</a><br />
+          <abbr title="Work Phone">phone:</abbr> (012) 345-678-901<br/>
+          <abbr title="Work Fax">fax:</abbr> (012) 678-132-901
+          <div class="separator line"></div>
+          <p class="margin-none"><strong>You can also find us:</strong><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique rutrum libero, vel bibendum nunc consectetur sed.</p>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="widget widget-heading-simple widget-body-gray">
+    <div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Important note</h4></div>
+    <div class="widget-body"><p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat massa, ultricies sit amet <a href="" class="text-underline">mattis vitae</a>, lacinia in quam. Nullam nec congue odio. Aenean tincidunt commodo urna, et pulvinar arcu varius sed. Quisque ullamcorper arcu sit amet justo dapibus, eget suscipit sapien egestas. Proin lobortis nibh non risus mollis, sed mattis orci imperdiet. <a href="" class="text-underline">Donec sit amet</a> tincidunt tellus. Etiam ut faucibus nisi. Mauris elit justo, pretium ultrices quam vitae, ultrices scelerisque tellus. Sed quis ullamcorper libero. Etiam blandit faucibus nulla sit amet gravida.</p></div>
+  </div>
+
+</div>
