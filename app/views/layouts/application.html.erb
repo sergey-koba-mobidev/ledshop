@@ -29,6 +29,7 @@
   <script src="/assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v2.3.0"></script>	<script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
   <%= yield :js_scripts %>
 
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>

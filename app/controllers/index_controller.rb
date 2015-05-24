@@ -1,4 +1,4 @@
-class IndexController < ApplicationController
+class IndexController < Spree::StoreController
   def show
   end
 

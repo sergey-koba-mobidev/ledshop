@@ -37,8 +37,8 @@
   environment:
     PATH: "{{rbenv_root}}/shims:{{rbenv_root}}/bin:/bin:/usr/bin:/usr/local/bin:$PATH"
 
-- name: Shoppe setup DB
-  shell: rake shoppe:setup
+- name: Seed DB
+  shell: rake db:seed
   sudo: false
   args:
     executable: /bin/bash

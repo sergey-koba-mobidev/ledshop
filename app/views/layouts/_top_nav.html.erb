@@ -36,23 +36,24 @@
   <div class="container-960">
 
     <!-- Brand -->
-    <a href="<%= root_path %>" class="appbrand pull-left"><span class="text-primary">LED</span> SHOP</a>
+    <a href="<%= main_app.root_path %>" class="appbrand pull-left"><span class="text-primary">LED</span> SHOP</a>
 
     <ul class="topnav pull-right">
 
       <li class="dropdown dd-1 active">
         <a href="" data-toggle="dropdown">Продукция <span class="caret"></span></a>
-        <ul class="dropdown-menu pull-left">
-          <li class=""><a href="index.html?lang=en">Торговое освещение</a></li>
-          <li class=""><a href="index_2.html?lang=en">Освещение для офисов</a></li>
-          <li class=""><a href="index_slider.html?lang=en">Архитектурное освещение</a></li>
-          <li class=" active"><a href="index_slider_fullwidth.html?lang=en">Уличное светодиоидное освещение</a></li>
+        <ul class="dropdown-menu pull-left category-dropdown">
+          <% Spree::Taxonomy.all.each do |taxonomy| %>
+              <% taxonomy.taxons.each do |taxon| %>
+                <li><%= link_to taxon.name, seo_url(taxon) %></li>
+              <% end %>
+          <% end %>
         </ul>
       </li>
-      <li><a href="<%= about_path %>">О нас</a></li>
-      <li><a href="<%= news_path %>">Новости</a></li>
-      <li><a href="<%= delivery_path %>">Доставка</a></li>
-      <li><a href="<%= contacts_path %>">Контакты</a></li>
+      <li><a href="<%= main_app.about_path %>">О нас</a></li>
+      <li><a href="<%= main_app.news_path %>">Новости</a></li>
+      <li><a href="<%= main_app.delivery_path %>">Доставка</a></li>
+      <li><a href="<%= main_app.contacts_path %>">Контакты</a></li>
 
     </ul>
     <div class="clearfix"></div>
