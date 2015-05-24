@@ -11,8 +11,9 @@ namespace :ledlife do
     end
 
     def import_product(product_url)
-      #doc = Nokogiri::HTML(open(product_url))
-
+      doc = Nokogiri::HTML(open(product_url))
+      name = doc.at_css("h1").text
+      puts "Imported product: " + name.pretty + ' ' + product_url
     end
 
     def import_products(category, category_doc)
