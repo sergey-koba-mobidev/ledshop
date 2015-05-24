@@ -3,6 +3,11 @@ class IndexController < ApplicationController
   end
 
   def contacts
+  end
 
+  def about
+  end
+
+  def delivery
   end
 end
