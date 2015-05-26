@@ -1,3 +1,12 @@
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.shop.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/gallery/gridalicious/assets/lib/jquery.gridalicious.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/gallery/gridalicious/assets/custom/gridalicious.init.js?v=v2.3.0"></script>
+<% end %>
+
 <% if "spree/products" == params[:controller] && @taxon || !@taxonomies.empty? %>
   <% content_for :sidebar do %>
     <div data-hook="homepage_sidebar_navigation">

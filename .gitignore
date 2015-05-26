@@ -70,3 +70,6 @@ public/uploads/
 vagrant_ansible_inventory_default
 *.pid
 public/sitemaps/*
+public/spree
+public/spree/*
+public/spree/products/*

@@ -1,4 +1,15 @@
 <% @body_id = 'cart' %>
+
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.shop_cart.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/tables/classic/assets/js/tables-classic.init.js?v=v2.3.0"></script>
+<% end %>
+
 <div data-hook="cart_container">
   <h1><%= Spree.t(:shopping_cart) %></h1>
 

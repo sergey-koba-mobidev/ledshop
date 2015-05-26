@@ -22,24 +22,34 @@
 </div>
 
 <% if products.any? %>
-  <div id="products" class="row" data-hook>
+  <div id="products" data-toggle="gridalicious" data-gridalicious-width="180" data-gridalicious-gutter="0">
     <% products.each do |product| %>
       <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
-      <div id="product_<%= product.id %>" class="col-md-3 col-sm-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
-        <div class="panel panel-default">
-          <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
-            <div class="panel-body text-center product-body">
-              <%= link_to small_image(product, itemprop: "image"), url, itemprop: 'url' %><br/>
-              <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+      <div class="widget widget-heading-simple widget-body-gray widget-pinterest product-list-item" id="product_<%= product.id %>" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+          <div class="widget-body padding-none">
+            <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
+            <%= link_to large_image(product, itemprop: "image"), url, itemprop: 'url', class: 'thumb' %>
+            <div class="description">
+              <h5 class="text-uppercase strong"><%= truncate(product.name, length: 60) %></h5>
+              <p><%= product.description.truncate(100, separator: ' ') %></p>
+              <div class="row">
+                <div class="col-md-8 padding-none">
+                  <div class="btn-group btn-group-sm">
+                    <!--<button type="button" class="btn btn-inverse" data-toggle="tooltip" data-title="Wish"><i class="fa fa-heart"></i></button>-->
+                    <a href="<%= url %>" class="btn btn-success"><i class="fa fa-shopping-cart fa-fw"></i> Купить</a>
+                  </div>
+                </div>
+                <div class="col-md-4 pull-right  padding-none">
+                  <div class="text-right">
+                    <a href="<%= url %>" class="btn btn-sm btn-default" data-toggle="tooltip" data-title="View"><i class="fa fa-eye"></i></a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="panel-footer text-center">
-              <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <span class="price selling lead" itemprop="price"><%= display_price(product) %></span>
-              </span>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+          <div class="ribbon-wrapper"><div class="ribbon success"><%= display_price(product) %></div></div>
         </div>
-      </div>
     <% end %>
     <% reset_cycle("classes") %>
   </div>
