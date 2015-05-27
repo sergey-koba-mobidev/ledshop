@@ -55,3 +55,168 @@
     </div>
   </div>
 <% end %>
+
+<% cache [I18n.locale, current_currency, @product] do %>
+<div class="container-960 innerT">
+
+  <h3 class="margin-none"><%= @product.name %></h3>
+  <div class="separator bottom"></div>
+
+  <!-- Product details -->
+  <div class="shop-client-products product-details">
+
+    <!-- Row -->
+    <div class="row">
+      <%
+         main_img = render :partial => 'image'
+         doc = Nokogiri::HTML( main_img )
+         main_url = doc.at_css('img')["src"]
+      %>
+      <!-- Product Gallery -->
+      <div class="col-md-4" data-toggle="modal-gallery" data-target="#modal-gallery" id="gallery-5" data-delegate="#gallery-5">
+        <a class="thumb" href="<%= main_url %>" data-gallery="gallery"><%= render :partial => 'image' %></a>
+        <div class="separator bottom"></div>
+        <p class="separator text-center"><i class="fa fa-camera fa-3x"></i></p>
+        <div class="separator bottom"></div>
+        <div class="gallery">
+          <%= render :partial => 'thumbnails' %>
+        </div>
+      </div>
+      <!-- // Product Gallery END -->
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-7">
+            <!-- Product description -->
+            <div class="widget widget-heading-simple widget-body-gray">
+              <div class="widget-head"><h4 class="heading glyphicons notes strong"><i></i>Описание</h4></div>
+              <div class="widget-body">
+                <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+              </div>
+            </div>
+            <!-- // Product description END -->
+            <div class="widget widget-heading-simple widget-body-default">
+              <div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Important note</h4></div>
+              <div class="widget-body"><p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat massa, ultricies sit amet.</p></div>
+            </div>
+          </div>
+          <div class="col-md-5 padding-none">
+            <form class="margin-bottom-none">
+
+              <!-- Price -->
+              <div class="box-generic">
+                <div class="separator bottom">
+                  <span class="text-large">&dollar;1,000.00</span><br/>
+                  <span class="text-faded">&dollar;1,119 incl. VAT</span>
+                </div>
+                <label class="strong">Select size</label>
+                <select class="selectpicker col-md-12 padding-none" data-style="btn-default btn-small">
+                  <option>Option</option>
+                  <option>Option</option>
+                  <option>Option</option>
+                </select>
+
+                <label class="strong">Qty</label>
+                <input type="text" class="form-control input-block-level" value="1" />
+
+                <div class="separator bottom"></div>
+
+                <a href="shop_cart.html?lang=en" class="btn btn-lg btn-success btn-block"><i class="fa fa-fw fa-shopping-cart"></i> Add to cart</a>
+
+                <div class="text-right share innerT">
+                  Share <a href="" class="glyphicons-social standard facebook"><i></i></a>
+                  <a href="" class="glyphicons-social standard twitter"><i></i></a>
+                </div>
+                <div class="ribbon-wrapper"><div class="ribbon success">50% Off</div></div>
+              </div>
+              <!-- // Purchase Options END -->
+
+            </form>
+          </div>
+        </div>
+
+        <p class="separator text-center"><i class="icon-truck icon-3x"></i></p>
+        <div class="separator bottom"></div>
+
+        <!-- Product reviews & delivery -->
+        <div class="widget widget-tabs widget-quick">
+
+          <!-- Widget heading -->
+          <div class="widget-head">
+            <ul>
+              <li class="active"><a href="#reviewsTab" data-toggle="tab" class="glyphicons star"><i></i>Reviews</a></li>
+              <li><a href="#deliveryTab" data-toggle="tab" class="glyphicons car"><i></i>Delivery</a></li>
+            </ul>
+          </div>
+          <!-- // Widget heading END -->
+
+          <div class="widget-body">
+            <div class="tab-content">
+
+              <!-- Delivery Tab -->
+              <div class="tab-pane" id="deliveryTab">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis porta purus, pulvinar mattis nulla tempus ut. Curabitur quis dui orci. Ut nisi dolor, dignissim a aliquet quis, vulputate id dui. Proin ultrices ultrices ligula, dictum varius turpis faucibus non. Curabitur faucibus ultrices nunc, nec aliquet leo tempor cursus. Pellentesque sed felis ipsum. Quisque in lacus sed ante malesuada condimentum et a risus. Morbi accumsan euismod rutrum. Etiam vitae turpis eu est lacinia condimentum a sit amet erat. Sed augue turpis, lobortis ac feugiat eget, cursus ac justo.</p>
+              </div>
+              <!-- // Delivery Tab END -->
+
+              <!-- Reviews Tab -->
+              <div class="tab-pane active" id="reviewsTab">
+
+                <div class="separator bottom">
+                  <i class="icon-quote-right icon-5x pull-right icon-muted"></i>
+                  <strong>Customer name</strong><br/>
+									<span class="rating text-left text-faded read-only">
+							        	<span class="star"></span>
+							        	<span class="star active"></span>
+							        	<span class="star"></span>
+							        	<span class="star"></span>
+							        	<span class="star"></span>
+							        </span>&nbsp;
+                  <span class="text-faded"><i class="icon-fixed-width icon-calendar"></i> on 22th June, 2013</span>
+                  <br/>
+                  Aliquam rutrum, sem at scelerisque tempor, nulla diam pulvinar tortor, id pulvinar massa velit eu purus. Curabitur eu fringilla diam, sed suscipit lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras iaculis enim vel odio imperdiet faucibus. Aliquam erat volutpat.
+                </div>
+                <div class="">
+                  <i class="icon-quote-right icon-5x pull-right icon-muted"></i>
+                  <strong>Customer name</strong><br/>
+									<span class="rating text-left text-faded read-only">
+							        	<span class="star"></span>
+							        	<span class="star active"></span>
+							        	<span class="star"></span>
+							        	<span class="star"></span>
+							        	<span class="star"></span>
+							        </span>&nbsp;
+                  <span class="text-faded"><i class="icon-fixed-width icon-calendar"></i> on 22th June, 2013</span>
+                  <br/>
+                  Aliquam rutrum, sem at scelerisque tempor, nulla diam pulvinar tortor, id pulvinar massa velit eu purus. Curabitur eu fringilla diam, sed suscipit lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras iaculis enim vel odio imperdiet faucibus. Aliquam erat volutpat.
+                </div>
+
+              </div>
+              <!-- // Reviews Tab END -->
+
+            </div>
+          </div>
+        </div>
+        <!-- // Product reviews & delivery END -->
+      </div>
+      <!-- // Row END -->
+
+    </div>
+    <div class="separator bottom"></div>
+    <!-- // Product details END -->
+
+  </div>
+
+
+  <!-- Blueimp Gallery -->
+  <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev no-ajaxify">‹</a>
+    <a class="next no-ajaxify">›</a>
+    <a class="close no-ajaxify">×</a>
+    <a class="play-pause no-ajaxify"></a>
+    <ol class="indicator"></ol>
+  </div>
+  <!-- // Blueimp Gallery END -->
+<% end %>
