@@ -79,20 +79,7 @@
       <!-- Widget -->
       <div class="widget widget-heading-simple widget-body-gray">
         <div class="widget-body list">
-
-          <!-- List -->
-          <ul>
-            <% Spree::Taxonomy.all.each do |taxonomy| %>
-                <% taxonomy.taxons.each do |taxon| %>
-                    <li>
-                      <%= link_to taxon.name.truncate(27), seo_url(taxon) %>
-                      <span class="badge"><%= taxon.products.count.to_s %></span>
-                    </li>
-                <% end %>
-            <% end %>
-          </ul>
-          <!-- // List END -->
-
+          <%= render partial: 'spree/shared/taxons_list' %>
         </div>
       </div>
       <!-- // Widget END -->
@@ -128,7 +115,7 @@
   <div class="separator bottom"></div>
   <div class="widget widget-heading-simple widget-body-gray">
     <div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Описание</h4></div>
-    <div class="widget-body"><pre class="margin-none"><%= @taxon.description %></pre></div>
+    <div class="widget-body"><%= @taxon.description.html_safe %></div>
   </div>
 
 </div>

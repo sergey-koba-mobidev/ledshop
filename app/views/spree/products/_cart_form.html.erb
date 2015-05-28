@@ -1,67 +1,62 @@
-<%= form_for :order, :url => populate_orders_path do |f| %>
-  <div class="row" id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-    <% if @product.variants_and_option_values(current_currency).any? %>
-      <div id="product-variants" class="col-md-6">
-        <h3 class="product-section-title"><%= Spree.t(:variants) %></h3>
-        <ul class="list-group">
-          <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
-            <li>
-              <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_in(current_currency).money  %>
-              <%= label_tag "variant_id_#{ variant.id }" do %>
-                <span class="variant-description">
-                  <%= variant_options variant %>
-                </span>
-                <% if variant_price variant %>
+<div class="col-md-5 padding-none">
+  <%= form_for :order, :url => populate_orders_path, class: 'margin-bottom-none' do |f| %>
+    <!-- Price -->
+    <div class="box-generic">
+          <% if @product.price_in(current_currency) and !@product.price.nil? %>
+              <div class="separator bottom">
+                <span class="text-large" id="product-price"><%= display_price(@product) %></span><br/>
+                <span class="text-faded">Цена варианта может отличаться</span>
+              </div>
+          <% else %>
+              <div class="separator bottom">
+                <span class="text-large">Валюта недоступна</span><br/>
+              </div>
+          <% end %>
+      <% if @product.variants_and_option_values(current_currency).any? %>
+          <label class="strong">Варианты</label>
+          <select class="selectpicker col-md-12 padding-none" data-style="btn-default btn-small" name="variant_id" id="variant_id_select">
+            <% @product.variants_and_option_values(current_currency).each_with_index do |variant, index| %>
+            <option value="<%= variant.id %>" data-price="<%= variant.price_in(current_currency).money %>">
+              <%= variant_options variant %>
+              <% if variant_price variant %>
                   <span class="price diff"><%= variant_price variant %></span>
-                <% end %>
-                <% unless variant.can_supply? %>
-                  <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
-                <% end %>
               <% end %>
-            </li>
-          <% end%>
-        </ul>
-      </div>
-    <% else %>
-      <%= hidden_field_tag "variant_id", @product.master.id %>
-    <% end %>
+              <% unless variant.can_supply? %>ct
+                  <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+              <% end %>
+            </option>
+            <% end %>
+          </select>
 
-    <% if @product.price_in(current_currency) and !@product.price.nil? %>
-      <div data-hook="product_price" class="col-md-5">
-        <div id="product-price">
-          <h6 class="product-section-title"><%= Spree.t(:price) %></h6>
-          <div>
-            <span class="lead price selling" itemprop="price">
-              <%= display_price(@product) %>
-            </span>
-            <span itemprop="priceCurrency" content="<%= @product.currency %>"></span>
-          </div>
+      <% else %>
+          <%= hidden_field_tag "variant_id", @product.master.id %>
+      <% end %>
+
+      <label class="strong">Кол-во</label>
+          <%= number_field_tag :quantity, 1, :class => 'form-control input-block-level', :min => 1 %>
+
+      <div class="separator bottom"></div>
+          <%= button_tag :class => 'btn btn-lg btn-success btn-block', :id => 'add-to-cart-button', :type => :submit do %>
+              <i class="fa fa-fw fa-shopping-cart"></i> В корзину
+          <% end %>
+
+      <!--<div class="text-right share innerT">
+        Share <a href="" class="glyphicons-social standard facebook"><i></i></a>
+        <a href="" class="glyphicons-social standard twitter"><i></i></a>
+      </div>-->
 
           <% if @product.master.can_supply? %>
-            <link itemprop="availability" href="https://schema.org/InStock" />
+              <div class="ribbon-wrapper"><div class="ribbon success">Есть</div></div>
           <% elsif @product.variants.empty? %>
-            <br />
-            <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+              <div class="ribbon-wrapper"><div class="ribbon danger">Нет</div></div>
           <% end %>
-        </div>
 
-        <div class="add-to-cart">
-          <br/>
-          <div class="input-group">
-            <%= number_field_tag :quantity, 1, :class => 'title form-control', :min => 1 %>
-            <span class="input-group-btn">
-              <%= button_tag :class => 'btn btn-success', :id => 'add-to-cart-button', :type => :submit do %>
-                <%= Spree.t(:add_to_cart) %>
-              <% end %>
-            </span>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div id="product-price">
-        <br>
-        <div><span class="price selling" itemprop="price"><%= Spree.t('product_not_available_in_this_currency') %></span></div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+    <!-- // Purchase Options END -->
+      <% end %>
+</div>
+<script>
+    $('#variant_id_select').on('change', function() {
+        $('#product-price').text($(this).find(":selected").attr('data-price') );
+    });
+</script>

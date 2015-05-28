@@ -1,0 +1,12 @@
+<!-- List -->
+<ul>
+  <% Spree::Taxonomy.all.each do |taxonomy| %>
+      <% taxonomy.taxons.each do |taxon| %>
+          <li>
+            <%= link_to taxon.name.truncate(21), seo_url(taxon) %>
+            <span class="badge"><%= taxon.products.count.to_s %></span>
+          </li>
+      <% end %>
+  <% end %>
+</ul>
+<!-- // List END -->

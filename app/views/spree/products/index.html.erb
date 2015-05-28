@@ -6,7 +6,121 @@
     <script src="/assets/components/modules/admin/gallery/gridalicious/assets/lib/jquery.gridalicious.min.js?v=v2.3.0"></script>
     <script src="/assets/components/modules/admin/gallery/gridalicious/assets/custom/gridalicious.init.js?v=v2.3.0"></script>
 <% end %>
+<div class="container-960 innerT">
 
+  <h3 class="heading glyphicons shopping_cart"><i></i>Все продукты</h3>
+  <div class="separator bottom"></div>
+
+  <div class="carousel-1 carousel slide" id="myCarousel">
+    <div class="carousel-inner">
+      <!-- Item -->
+      <div class="item active">
+        <div class="row">
+          <div class="col-md-5 relativeWrap">
+            <div class="carousel-caption center">
+              <h2>Special Offer</h2>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p class="strong separator">Voucher: ABC-DEF123X</p>
+              <button type="button" class="btn btn-large btn-block btn-inverse"><i class="fa fa-shopping-cart fa-fw"></i> Get it now!</button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <img src="../assets/images/gallery/12.jpg" alt="" class="img-responsive" />
+          </div>
+        </div>
+      </div>
+      <!-- // Item END -->
+      <!-- Item -->
+      <div class="item">
+        <div class="row">
+          <div class="col-md-5 relativeWrap">
+            <div class="carousel-caption center">
+              <h2>Special Offer</h2>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p class="strong separator">Voucher: ABC-DEF123X</p>
+              <button type="button" class="btn btn-large btn-block btn-inverse"><i class="fa fa-shopping-cart fa-fw"></i> Get it now!</button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <img src="../assets/images/gallery/11.jpg" alt="" class="img-responsive" />
+          </div>
+        </div>
+      </div>
+      <!-- // Item END -->
+      <!-- Item -->
+      <div class="item">
+        <div class="row">
+          <div class="col-md-5 relativeWrap">
+            <div class="carousel-caption center">
+              <h2>Special Offer</h2>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p class="strong separator">Voucher: ABC-DEF123X</p>
+              <button type="button" class="btn btn-large btn-block btn-inverse"><i class="fa fa-shopping-cart fa-fw"></i> Get it now!</button>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <img src="../assets/images/gallery/10.jpg" alt="" class="img-responsive" />
+          </div>
+        </div>
+      </div>
+      <!-- // Item END -->
+    </div>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+
+      <!-- Widget -->
+      <div class="widget widget-heading-simple widget-body-gray">
+        <div class="widget-body list">
+          <%= render partial: 'spree/shared/taxons_list' %>
+        </div>
+      </div>
+      <!-- // Widget END -->
+
+      <div class="widget widget-heading-simple widget-body-inverse">
+        <div class="widget-body">
+          <div class="glyphicons glyphicon-xlarge glyphicon-top circle_question_mark">
+            <i></i>
+            <h4>Have a Question?</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <a href="" class="btn btn-primary btn-block"><span class="fa fa-comments-o fa-fw"></span> Live Support</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="widget widget-heading-simple widget-body-gray">
+        <div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Important note</h4></div>
+        <div class="widget-body"><p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat massa, ultricies sit amet.</p></div>
+      </div>
+
+      <div class="widget widget-heading-simple widget-body-gray">
+        <div class="widget-head"><h4 class="heading glyphicons tags strong"><i></i>Labels</h4></div>
+        <div class="widget-body center"><span class="label label-default">responsive blog</span> <span class="label label-default">12 column grid</span> <span class="label label-default">awesome</span> <span class="label label-default">mobile first</span> <span class="label label-default">easy development</span> <span class="label label-default">html template</span></div>
+      </div>
+
+    </div>
+    <div class="col-md-9">
+      <% if params[:keywords] %>
+            <% if @products.empty? %>
+                <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+            <% else %>
+                <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+            <% end %>
+      <% else %>
+            <% cache(cache_key_for_products) do %>
+                <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+            <% end %>
+      <% end %>
+    </div>
+  </div> <!-- ROW END -->
+</div>
+<!--
 <% if "spree/products" == params[:controller] && @taxon || !@taxonomies.empty? %>
   <% content_for :sidebar do %>
     <div data-hook="homepage_sidebar_navigation">
@@ -18,19 +132,4 @@
     </div>
   <% end %>
 <% end %>
-
-<% if params[:keywords] %>
-  <div data-hook="search_results">
-    <% if @products.empty? %>
-      <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
-    <% else %>
-      <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
-    <% end %>
-  </div>
-<% else %>
-  <div data-hook="homepage_products">
-    <% cache(cache_key_for_products) do %>
-      <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
-    <% end %>
-  </div>
-<% end %>
+-->

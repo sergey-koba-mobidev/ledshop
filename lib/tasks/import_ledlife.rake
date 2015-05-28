@@ -11,14 +11,16 @@ namespace :ledlife do
     end
 
     def import_product_properties(product, product_doc)
-      product_doc.css("#product-attribute-specs-table li").each do |prop_li|
-        name = prop_li.at_css('.characteristics_title').text
-        prop = Spree::Property.find_or_create_by!(name: name, presentation: name)
-        product_prop = Spree::ProductProperty.new
-        product_prop.product = product
-        product_prop.property = prop
-        product_prop.value = prop_li.at_css('.data').text
-        product_prop.save!
+      if (product.properties.size == 0)
+        product_doc.css("#product-attribute-specs-table li").each do |prop_li|
+          name = prop_li.at_css('.characteristics_title').text
+          prop = Spree::Property.find_or_create_by!(name: name, presentation: name)
+          product_prop = Spree::ProductProperty.new
+          product_prop.product = product
+          product_prop.property = prop
+          product_prop.value = prop_li.at_css('.data').text
+          product_prop.save!
+        end
       end
     end
 
@@ -39,6 +41,7 @@ namespace :ledlife do
       end
 
       # Variants
+      first = true
       options["productsSku"].each do |key, var|
         price = 0
         var["attributes"].each do |atr_id, val_id|
@@ -53,6 +56,11 @@ namespace :ledlife do
           )
           var["attributes"].each do |atr_id, val_id|
             variant.option_values << all_values[val_id]["new_option"]
+          end
+          if first
+            product.master.price = price
+            product.master.save!
+            first = false
           end
         end
       end
@@ -72,7 +80,7 @@ namespace :ledlife do
         product = Spree::Product.new
         product.assign_attributes(
             name: name,
-            description: doc.at_css(".description").content,
+            description: doc.at_css(".description").to_s,
             available_on: Time.now,
             slug: product_url.split('/').last.gsub('.html', ''),
             shipping_category_id: 1
@@ -116,7 +124,7 @@ namespace :ledlife do
           )
           taxon = category.root
           taxon.update_attributes!(
-              description: category_doc.at_css('.category-description').content,
+              description: category_doc.at_css('.category-description').to_s,
               permalink: category_link["href"].split('/').last.gsub('.html', '')
           )
           puts "Imported category: " + name.pretty + ' ' + category_url
@@ -130,7 +138,7 @@ namespace :ledlife do
     Spree::OptionType.unscoped.destroy_all
     Spree::Property.unscoped.destroy_all
     Spree::Image.unscoped.destroy_all
-    Spree::Product.all.map{ |p| p.really_destroy! }
+    Spree::Product.all.map { |p| p.really_destroy! }
     import_categories
   end
 end
