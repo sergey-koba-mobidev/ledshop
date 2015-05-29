@@ -16,3 +16,6 @@
 .navbar.main .topnav>li.dropdown .dropdown-menu.category-dropdown{
     width: 265px;
 }
+.product .media-object{
+    border:1px solid white;
+}
