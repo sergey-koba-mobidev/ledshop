@@ -49,6 +49,7 @@ namespace :ledlife do
         end
         variant = Spree::Variant.find_by_sku(var["sku"])
         if variant.nil?
+          price = product.master.price if price <= 0
           variant = Spree::Variant.create!(
               product_id: product.id,
               sku: var["sku"],
@@ -58,9 +59,11 @@ namespace :ledlife do
             variant.option_values << all_values[val_id]["new_option"]
           end
           if first
-            product.master.price = price
-            product.master.save!
-            first = false
+            if (price > 0)
+              product.master.price = price
+              product.master.save!
+              first = false
+            end
           end
         end
       end
@@ -85,7 +88,7 @@ namespace :ledlife do
             slug: product_url.split('/').last.gsub('.html', ''),
             shipping_category_id: 1
         )
-        product.master.price = doc.at_css(".price").text.match('(\d+[,.]\d+)').captures.first.gsub(",", ".").to_f
+        product.master.price = doc.at_css(".price").text.match('(\d+[,.]\d+)').captures.first.gsub(",", ".").gsub(" ", "").to_f
         product.save!
       end
       product.taxons << taxon

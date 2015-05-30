@@ -19,3 +19,6 @@
 .product .media-object{
     border:1px solid white;
 }
+.cart-info.full{
+    color: white !important;
+}

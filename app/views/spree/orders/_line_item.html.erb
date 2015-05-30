@@ -1,8 +1,8 @@
 <% variant = line_item.variant %>
 
-<%= order_form.fields_for :line_items, line_item do |item_form| %>
     <!-- Cart item -->
-    <tr class="selectable selected">
+    <tr class="selectable line-item">
+      <%= order_form.fields_for :line_items, line_item do |item_form| %>
       <td class="product">
         <div class="media">
           <% if variant.images.length == 0 %>
@@ -25,10 +25,11 @@
       </td>
       <td class="center"><%= line_item.single_money.to_html %></td>
       <td class="center">
-        <%= item_form.number_field :quantity, min: 0, class: "form-control input-block-level", style: 'margin: 0;width: 50px;' %>
+        <%= item_form.number_field :quantity, min: 0, class: "form-control input-block-level line_item_quantity", style: 'margin: 0;width: 50px;' %>
       </td>
       <td class="center"><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></td>
       <td><%= link_to content_tag(:span, '', class: 'glyphicon glyphicon-minus-sign'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %></td>
+      <% end %>
     </tr>
     <!-- // Cart item END -->
-<% end %>
+

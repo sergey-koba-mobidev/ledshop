@@ -108,6 +108,14 @@
             </p>
         <% end %>
       </div>
+
+      <script>
+        $('form#update-cart a.delete').on('click',function(){
+            $(this).parents('.line-item').first().find('input.line_item_quantity').val(0);
+            $(this).parents('form').first().submit()
+            return false;
+        });
+      </script>
   <% end %>
   <div class="separator bottom"></div>
 

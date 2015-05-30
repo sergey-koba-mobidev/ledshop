@@ -54,6 +54,9 @@
       <li><a href="<%= main_app.news_path %>">Новости</a></li>
       <li><a href="<%= main_app.delivery_path %>">Доставка</a></li>
       <li><a href="<%= main_app.contacts_path %>">Контакты</a></li>
+      <li class="glyphicons cart_in cart-color" id="cart-li">
+        <%= link_to '<i></i> '.html_safe, '/cart' %>
+      </li>
 
     </ul>
     <div class="clearfix"></div>
