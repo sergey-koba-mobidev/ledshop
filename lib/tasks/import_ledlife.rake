@@ -78,6 +78,7 @@ namespace :ledlife do
     def import_product(taxon, product_url)
       doc = Nokogiri::HTML(open(product_url))
       name = doc.at_css("h1").text
+      puts 'Importing product: ' + product_url.split('/').last.gsub('.html', '').pretty
       product = Spree::Product.find_by_slug(product_url.split('/').last.gsub('.html', ''))
       if product.nil?
         product = Spree::Product.new
@@ -88,7 +89,7 @@ namespace :ledlife do
             slug: product_url.split('/').last.gsub('.html', ''),
             shipping_category_id: 1
         )
-        product.master.price = doc.at_css(".price").text.match('(\d+[,.]\d+)').captures.first.gsub(",", ".").gsub(" ", "").to_f
+        product.master.price = doc.at_css(".price").text.match('(\d+[,.]\d+)').captures.first.gsub(",", ".").gsub("&nbsp;", "").to_f
         product.save!
       end
       product.taxons << taxon

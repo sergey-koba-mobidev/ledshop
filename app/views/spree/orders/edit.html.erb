@@ -29,8 +29,8 @@
 
   <% if @order.line_items.empty? %>
       <div data-hook="empty_cart">
-        <div class="alert alert-info">Ваща корзина пуста</div>
-        <p><%= link_to 'Продолжить покупки', products_path, class: 'btn btn-inverse' %></p>
+        <div class="alert alert-info"><%= Spree.t(:your_cart_is_empty) %></div>
+        <p><%= link_to Spree.t(:continue_shopping), products_path, class: 'btn btn-inverse' %></p>
       </div>
   <% else %>
         <%= form_for @order, url: update_cart_path, html: { id: 'update-cart' } do |order_form| %>
@@ -85,10 +85,10 @@
         <div class="cart_total center">
           <span class="label label-block large">Total: &dollar;1,195.95</span>
           <%= button_tag class: 'btn btn-block btn-large btn-default btn-icon glyphicons refresh', id: 'update-button' do %>
-              <i></i>Обновить
+              <i></i><%= Spree.t(:update) %>
           <% end %>
           <%= button_tag class: 'btn btn-block btn-large btn-primary btn-icon glyphicons right_arrow', id: 'checkout-link', name: 'checkout' do %>
-              <i></i>Оформить заказ
+              <i></i><%= Spree.t(:checkout) %>
           <% end %>
         </div>
       </div>
@@ -102,9 +102,9 @@
       <div id="empty-cart" class="col-md-6 pull-left" data-hook>
         <%= form_tag empty_cart_path, method: :put do %>
             <p id="clear_cart_link" data-hook>
-              <%= submit_tag 'Очистить корзину', class: 'btn btn-default' %>
+              <%= submit_tag Spree.t(:empty_cart), class: 'btn btn-default' %>
               или
-              <%= link_to 'Продолжить покупки', products_path, class: 'continue' %>
+              <%= link_to Spree.t(:continue_shopping), products_path, class: 'continue' %>
             </p>
         <% end %>
       </div>
