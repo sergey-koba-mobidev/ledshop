@@ -1,6 +1,16 @@
 <% if spree_current_user %>
-  <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
-  <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+  <li class="inverse">
+    <%= link_to ('<i></i> '+Spree.t(:my_account)).html_safe, spree.account_path, class: 'glyphicons user no-ajaxify' %>
+  </li>
+  <li class="primary">
+    <%= link_to ('<i></i> '+Spree.t(:logout)).html_safe, spree.logout_path, class: 'glyphicons exit no-ajaxify' %>
+  </li>
 <% else %>
-  <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li>
+  <li id="link-to-login" class="inverse">
+    <%= link_to ('<i></i> '+Spree.t(:login)).html_safe, spree.login_path, class: 'glyphicons unlock no-ajaxify' %>
+  </li>
+  <li class="primary">
+    <%= link_to '<i></i> Зарегистрироваться'.html_safe, spree.signup_path, class: 'glyphicons user_add no-ajaxify' %>
+  </li>
+
 <% end %>

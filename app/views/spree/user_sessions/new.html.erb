@@ -1,0 +1,49 @@
+<%
+   @body_id = 'login'
+   @body_class = 'login breakpoint-768'
+%>
+
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.login.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
+<!-- Wrapper -->
+<div id="login">
+
+  <div class="container">
+
+    <div class="wrapper">
+
+      <h1 class="glyphicons unlock"><%= Spree.t(:login_as_existing) %> <i></i></h1>
+
+      <!-- Box -->
+      <div class="widget widget-heading-simple widget-body-gray">
+
+        <div class="widget-body">
+          <%= render :partial => 'spree/shared/login' %>
+        </div>
+          <% if flash[:alert] %>
+            <div class="widget-footer">
+              <div class="alert alert-danger"><%= flash[:alert] %></div>
+            </div>
+          <% end %>
+      </div>
+      <!-- // Box END -->
+
+    </div>
+
+  </div>
+
+</div>
+<!-- // Wrapper END -->
+<div class="text-center">
+  <%= Spree.t(:or) %>
+  <%= link_to Spree.t(:create_a_new_account), spree.signup_path %> |
+  <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+</div>
+<br /><br /><br />

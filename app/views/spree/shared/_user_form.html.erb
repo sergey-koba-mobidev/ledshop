@@ -1,0 +1,9 @@
+<label><%= Spree.t(:email) %></label>
+<%= f.email_field :email, :class => 'input-block-level form-control', :tabindex => 1, :placeholder => Spree.t(:email) %>
+<label><%= Spree.t(:password) %></label>
+<div class="clearfix"></div>
+<%= f.password_field :password, :class => 'input-block-level form-control margin-none', :tabindex => 2, :placeholder => Spree.t(:password) %>
+<label><%= Spree.t(:confirm_password) %></label>
+<div class="clearfix"></div>
+<%= f.password_field :password_confirmation, :class => 'input-block-level form-control margin-none', :placeholder => Spree.t(:confirm_password) %>
+<div class="separator bottom"></div>

@@ -22,3 +22,6 @@
 .cart-info.full{
     color: white !important;
 }
+body.login #login .wrapper {
+    max-width: 370px;
+}

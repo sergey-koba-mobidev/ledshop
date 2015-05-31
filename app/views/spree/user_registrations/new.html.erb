@@ -1,0 +1,59 @@
+<%
+   @body_id = 'signup'
+   @body_class = 'login breakpoint-768'
+%>
+
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.login.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
+
+<% if @user && @user.errors.any? %>
+    <div class="text-center">
+      <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+    </div>
+<% end %>
+<!-- Wrapper -->
+<div id="login">
+
+  <div class="container">
+
+    <div class="wrapper">
+
+      <h1 class="glyphicons user_add"><%= Spree.t(:new_customer) %> <i></i></h1>
+
+      <!-- Box -->
+      <div class="widget widget-heading-simple widget-body-gray">
+
+        <div class="widget-body">
+          <%= form_for resource, :as => :spree_user, :url => spree.registration_path do |f| %>
+                <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+              <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4 center">
+                  <%= f.submit Spree.t(:create), :class => 'btn btn-block btn-inverse' %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- // Box END -->
+
+    </div>
+
+  </div>
+
+</div>
+<!-- // Wrapper END -->
+<div class="text-center">
+  <%= Spree.t(:or) %>
+  <%= link_to Spree.t(:login_as_existing), spree.login_path %>
+</div>
+<br /><br /><br />
+

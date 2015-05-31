@@ -22,21 +22,21 @@
                data-y="54"
                data-speed="300"
                data-start="800"
-               data-easing="easeOutExpo">TOUCH ENABLED</div>
+               data-easing="easeOutExpo">СТИЛЬНО</div>
 
           <div class="caption medium_text sfl"
-               data-x="59"
+               data-x="88"
                data-y="92"
                data-speed="300"
                data-start="1100"
-               data-easing="easeOutExpo">AND</div>
+               data-easing="easeOutExpo">И</div>
 
           <div class="caption large_text sfr"
                data-x="108"
                data-y="88"
                data-speed="300"
                data-start="1100"
-               data-easing="easeOutExpo"><span class="text-primary">RESPONSIVE</span></div>
+               data-easing="easeOutExpo"><span class="text-primary">ЭКОНОМНО</span></div>
 
           <div class="tp-caption text_white sfr"
                data-x="30"
@@ -44,16 +44,15 @@
                data-speed="600"
                data-start="2300"
                data-easing="easeOutExpo">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br/>
-              industry. Lorem Ipsum has been the industry's standard dummy text <br/>
-              ever since the 1500s, when an unknown printer took a galley of <br/>
-              type and scrambled it to make a type specimen book.</p>
-            <p>It has survived not only five centuries, but also the leap into <br/>
-              electronic typesetting, remaining essentially unchanged. <br/>
-              It was popularised in the 1960s with the release of Letraset <br/>
-              sheets containing Lorem Ipsum passages, and more recently <br/>
-              with desktop publishing software like Aldus PageMaker <br/>
-              including versions of Lorem Ipsum.</p>
+            <p>Светодиодные лампы или светодиодные светильники в качестве источника<br/>
+              света используют светодиоды, применяются для бытового, промышленного<br/>
+              и уличного освещения. Светодиодная лампа является одним из самых<br/>
+              экологически чистых источников света. Принцип свечения светодиодов<br/>
+              позволяет применять в производстве и работе самой лампы безопасные компоненты.
+              </p>
+            <p>Светодиодные лампы не используют веществ, содержащих ртуть,<br/>
+              поэтому они не представляют опасности в случае выхода из строя или разрушения.
+              </p>
           </div>
 
           <div class="caption lfl"
@@ -78,7 +77,30 @@
                data-easing="easeOutExpo"><img src="/assets/images/front/slides/slide-1-phone.png" alt="Image 6"></div>
         </li>
 
+        <!-- THE THIRD SLIDE -->
         <li data-transition="flyin" data-slotamount="10" data-masterspeed="300">
+          <%
+          coords = [
+            {hoffset: 48, y: 131, speed: 600, start: 1100},
+            {hoffset: 90, y: 206, speed: 600, start: 1200},
+            {hoffset: 205, y: 140, speed: 600, start: 1300},
+            {hoffset: 188, y: 226, speed: 300, start: 1400},
+            {hoffset: -55, y: 256, speed: 600, start: 1500},
+            {hoffset: -153, y: 229, speed: 300, start: 1600},
+            {hoffset: 255, y: 224, speed: 300, start: 1700},
+            {hoffset: 275, y: 166, speed: 600, start: 1800},
+            {hoffset: -173, y: 129, speed: 300, start: 1600},
+            {hoffset: -255, y: 244, speed: 300, start: 1700},
+            {hoffset: -275, y: 166, speed: 300, start: 1800},
+            {hoffset: -55, y: 126, speed: 600, start: 1500},
+            {hoffset: 84, y: 113, speed: 300, start: 1900},
+            {hoffset: 26, y: 225, speed: 300, start: 2000},
+            {hoffset: 110, y: 187, speed: 300, start: 2100},
+            {hoffset: 130, y: 247, speed: 300, start: 2100},
+            {hoffset: -70, y: 200, speed: 300, start: 2200},
+          ]
+             slide_th = 0
+          %>
 
           <img src="/assets/images/front/slides/bg-bricks.jpg"/>
 
@@ -87,143 +109,18 @@
                data-y="47"
                data-speed="300"
                data-start="800"
-               data-easing="easeOutExpo">OVER <span class="text-primary">8000</span> SATISFIED CUSTOMERS</div>
+               data-easing="easeOutExpo">БОЛЕЕ <span class="text-primary"><%= roundup(Spree::Product.all.size) %></span> РАЗЛИЧНЫХ НАИМЕНОВАНИЙ</div>
 
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="48"
-               data-y="131"
-               data-speed="600"
-               data-start="1100"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/1.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="90"
-               data-y="206"
-               data-speed="600"
-               data-start="1200"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/2.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="205"
-               data-y="140"
-               data-speed="600"
-               data-start="1300"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/3.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="188"
-               data-y="226"
-               data-speed="300"
-               data-start="1400"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/4.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-55"
-               data-y="256"
-               data-speed="600"
-               data-start="1500"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/5.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-153"
-               data-y="229"
-               data-speed="300"
-               data-start="1600"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/6.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="255"
-               data-y="224"
-               data-speed="300"
-               data-start="1700"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/7.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="275"
-               data-y="166"
-               data-speed="300"
-               data-start="1800"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/8.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-173"
-               data-y="129"
-               data-speed="300"
-               data-start="1600"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/9.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-255"
-               data-y="244"
-               data-speed="300"
-               data-start="1700"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/10.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-275"
-               data-y="166"
-               data-speed="300"
-               data-start="1800"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/11.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-55"
-               data-y="126"
-               data-speed="600"
-               data-start="1500"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/12.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="84"
-               data-y="113"
-               data-speed="300"
-               data-start="1900"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/1.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="26"
-               data-y="225"
-               data-speed="300"
-               data-start="2000"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/2.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="110"
-               data-y="187"
-               data-speed="300"
-               data-start="2100"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/3.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="130"
-               data-y="247"
-               data-speed="300"
-               data-start="2100"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/4.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption randomrotate"
-               data-x="center"
-               data-hoffset="-70"
-               data-y="200"
-               data-speed="300"
-               data-start="2200"
-               data-easing="easeOutExpo"><img src="/assets/images/gallery/5.jpg" style="width: 100px;" class="thumb containerBg" alt="Image 12"></div>
+          <% Spree::Product.all.limit(coords.size).each do |p| %>
+                  <div class="caption randomrotate"
+                       data-x="center"
+                       data-hoffset="<%= coords[slide_th][:hoffset] %>"
+                       data-y="<%= coords[slide_th][:y] %>"
+                       data-speed="<%= coords[slide_th][:speed] %>"
+                       data-start="<%= coords[slide_th][:start] %>"
+                       data-easing="easeOutExpo"><a href="<%= spree.product_url(p) %>"><img src="<%= p.images.first.attachment.url(:small) %>" style="width: 100px;" class="thumb containerBg" alt="<%= p.name %>"></a></div>
+                <% slide_th += 1 %>
+            <% end %>
         </li>
 
         <!-- THE SECOND SLIDE -->
@@ -236,77 +133,41 @@
                data-y="303"
                data-speed="300"
                data-start="500"
-               data-easing="easeOutExpo" data-end="8800" data-endspeed="300" data-endeasing="easeInSine" >TIMELINED CAPTIONS</div>
+               data-easing="easeOutExpo" data-end="8800" data-endspeed="300" data-endeasing="easeInSine" ><span class="text-primary">LED</span> SHOP</div>
 
           <div class="caption big_white lfl stl"
                data-x="30"
                data-y="343"
                data-speed="300"
                data-start="800"
-               data-easing="easeOutExpo" data-end="9100" data-endspeed="300" data-endeasing="easeInSine" >MOVE CAPTIONS IN AND OUT ON ONE SLIDE</div>
+               data-easing="easeOutExpo" data-end="9100" data-endspeed="300" data-endeasing="easeInSine" >ПОСЛЕДНИЕ ПОСТУПЛЕНИЯ В МАГАЗИН</div>
 
-          <div class="caption lft ltb"
-               data-x="600"
-               data-y="center"
-               data-speed="600"
-               data-start="1100"
-               data-easing="easeOutExpo" data-end="3100" data-endspeed="600" data-endeasing="easeInSine" ><img src="/assets/images/gallery/3.jpg" style="width: 500px;" class="thumb containerBg" alt="Image 12"></div>
+          <% slide_th = 0 %>
+          <% Spree::Product.all.order(created_at: :desc).limit(3).each do |p| %>
+              <div class="caption lft ltb"
+                   data-x="600"
+                   data-y="center"
+                   data-speed="600"
+                   data-start="<%= (1100+2500*slide_th).to_s %>"
+                   data-easing="easeOutExpo" data-end="<%= (3100+2500*slide_th).to_s %>" data-endspeed="600" data-endeasing="easeInSine" >
+                <a href="<%= spree.product_url(p) %>"><img src="<%= p.images.first.attachment.url(:large) %>" style="width: 500px;" class="thumb containerBg" alt="<%= p.name %>"></a>
+              </div>
 
-          <div class="caption big_white sft stb"
-               data-x="820"
-               data-y="300"
-               data-speed="300"
-               data-start="1400"
-               data-easing="easeOutExpo" data-end="3300" data-endspeed="300" data-endeasing="easeInSine" >STRAWBERRY COCTAIL</div>
+              <div class="caption big_white sft stb"
+                   data-x="820"
+                   data-y="300"
+                   data-speed="300"
+                   data-start="<%= (1400+2500*slide_th).to_s %>"
+                   data-easing="easeOutExpo" data-end="<%= (3300+2500*slide_th).to_s %>" data-endspeed="300" data-endeasing="easeInSine" ><%= p.name.truncate(20) %></div>
 
-          <div class="caption big_black sfb stb"
-               data-x="820"
-               data-y="330"
-               data-speed="300"
-               data-start="1700"
-               data-easing="easeOutExpo" data-end="3200" data-endspeed="300" data-endeasing="easeInSine" >$ 7.49</div>
-
-          <div class="caption lft ltb"
-               data-x="600"
-               data-y="center"
-               data-speed="600"
-               data-start="3600"
-               data-easing="easeOutExpo" data-end="5600" data-endspeed="600" data-endeasing="easeInSine" ><img src="/assets/images/gallery/2.jpg" style="width: 500px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption big_white sft stb"
-               data-x="820"
-               data-y="300"
-               data-speed="300"
-               data-start="3900"
-               data-easing="easeOutExpo" data-end="5800" data-endspeed="300" data-endeasing="easeInSine" >COKE & RUM</div>
-
-          <div class="caption big_black sfb stb"
-               data-x="820"
-               data-y="330"
-               data-speed="300"
-               data-start="4200"
-               data-easing="easeOutExpo" data-end="5700" data-endspeed="300" data-endeasing="easeInSine" >$5.99</div>
-
-          <div class="caption lft ltb"
-               data-x="600"
-               data-y="center"
-               data-speed="600"
-               data-start="6100"
-               data-easing="easeOutExpo" data-end="8100" data-endspeed="300" data-endeasing="easeInSine" ><img src="/assets/images/gallery/10.jpg" style="width: 500px;" class="thumb containerBg" alt="Image 12"></div>
-
-          <div class="caption big_white sft stb"
-               data-x="820"
-               data-y="300"
-               data-speed="300"
-               data-start="6400"
-               data-easing="easeOutExpo" data-end="8300" data-endspeed="300" data-endeasing="easeInSine">MOJITO COCTAIL</div>
-
-          <div class="caption big_black sfb stb"
-               data-x="820"
-               data-y="330"
-               data-speed="300"
-               data-start="6700"
-               data-easing="easeOutExpo" data-end="8200" data-endspeed="300" data-endeasing="easeInSine" >$ 6.79</div>
+              <div class="caption big_black sfb stb"
+                   data-x="820"
+                   data-y="330"
+                   data-speed="300"
+                   data-start="<%= (1700+2500*slide_th).to_s %>"
+                   data-easing="easeOutExpo" data-end="<%= (3200+2500*slide_th).to_s %>" data-endspeed="300" data-endeasing="easeInSine" ><%= display_price(p) %></div>
+              <% slide_th += 1 %>
+          <% end %>
         </li>
 
         <!-- THE THIRD SLIDE -->
@@ -329,14 +190,14 @@
   </div>
   <div class="mosaic-line mosaic-line-2">
     <div class="container-960 center">
-      <h2 class="margin-none"><strong class="text-primary">Awesome</strong> Features <span class="hidden-phone">Lovely headline here</span></h2>
+      <h2 class="margin-none"><strong class="text-primary">Современное</strong> Освещение <span class="hidden-phone">Для дома и бизнеса</span></h2>
     </div>
   </div>
   <div class="container">
     <div class="innerT">
-      <div class="widget widget-heading-simple widget-body-gray">
+      <!--<div class="widget widget-heading-simple widget-body-gray">
         <div class="widget-body"><p class="margin-none">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. of.type and scrambled it to</p></div>
-      </div>
+      </div>-->
 
       <div class="row">
         <div class="col-md-3">
@@ -398,7 +259,7 @@
         </div>
       </div>
 
-      <h3 class="glyphicons chat"><i></i>Testimonials</h3>
+      <!--<h3 class="glyphicons chat"><i></i>Testimonials</h3>
       <div class="separator bottom"></div>
 
       <div class="row">
@@ -438,7 +299,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
     </div>
   </div>
