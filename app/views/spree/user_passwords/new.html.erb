@@ -1,0 +1,56 @@
+<%
+   @body_class = 'login breakpoint-768'
+%>
+
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.login.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
+<% if @spree_user && @spree_user.errors.any? %>
+    <div class="text-center">
+      <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
+    </div>
+<% end %>
+
+<!-- Wrapper -->
+<div id="login">
+
+  <div class="container">
+
+    <div class="wrapper">
+
+      <h1 class="glyphicons message_out"><%= Spree.t(:forgot_password) %> <i></i></h1>
+
+      <!-- Box -->
+      <div class="widget widget-heading-simple widget-body-gray">
+
+        <div class="widget-body">
+          <p><%= Spree.t(:instructions_to_reset_password) %> </p>
+
+          <%= form_for Spree::User.new, :as => :spree_user, :url => spree.reset_password_path do |f| %>
+              <label><%= Spree.t(:email) %></label>
+              <%= f.email_field :email, :class => 'input-block-level form-control', :tabindex => 1, :placeholder => Spree.t(:email) %>
+              <div class="separator bottom"></div>
+              <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8 center">
+                  <%= f.submit Spree.t(:reset_password), :class => 'btn btn-block btn-inverse' %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- // Box END -->
+
+    </div>
+
+  </div>
+
+</div>
+<!-- // Wrapper END -->
