@@ -1,11 +1,23 @@
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.about.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
 <% content_for :google_analytics do %>
   <% if order_just_completed?(@order) %>
     <%= render partial: 'spree/shared/google_purchase.js', locals: { order: @order } %>
   <% end %>
 <% end %>
 
+<div class="container-960">
+
 <fieldset id="order_summary" data-hook>
-  <legend><%= Spree.t(:order_number, number: @order.number) %></legend>
+  <div class="separator bottom"></div>
+<!--  <legend><%= Spree.t(:order_number, number: @order.number) %></legend> -->
   <h1><%= accurate_title %></h1>
   <% if order_just_completed?(@order) %>
     <strong><%= Spree.t(:thank_you_for_your_order) %></strong>
@@ -26,3 +38,5 @@
     </p>
   </div>
 </fieldset>
+
+</div>
