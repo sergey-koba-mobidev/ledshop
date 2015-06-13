@@ -1,4 +1,15 @@
-<h1><%= accurate_title %></h1>
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.about.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
+<div class="container-960">
+  <div class="separator bottom"></div>
+<h3 class="glyphicons address_book"><i></i> <%= accurate_title %></h3>
 
 <div data-hook="account_summary" class="account-summary well">
   <dl id="user-info">
@@ -8,8 +19,7 @@
 </div>
 
 <div data-hook="account_my_orders" class="account-my-orders">
-
-  <h3><%= Spree.t(:my_orders) %></h3>
+  <h3 class="glyphicons list"><i></i> <%= Spree.t(:my_orders) %></h3>
   <% if @orders.present? %>
     <table class="table table-striped order-summary">
       <thead class="active">
@@ -40,4 +50,5 @@
   <% end %>
   <br />
 
+</div>
 </div>
