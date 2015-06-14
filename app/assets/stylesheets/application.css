@@ -43,3 +43,15 @@ body.login #login .wrapper {
     height: 28px;
     vertical-align: top;
 }
+
+.alert-error {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}
+
+.alert-notice {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
