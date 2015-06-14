@@ -25,3 +25,21 @@
 body.login #login .wrapper {
     max-width: 370px;
 }
+
+.topnav-search-form {
+    padding: 0px;
+    margin: 0px;
+    height: 30px;
+}
+
+.topnav-search-form select, .topnav-search-form input{
+    height: 30px;
+    margin: 0px;
+    font-size: 12px !important;
+    border: 0px;
+}
+.topnav-search-form .form-group {
+    line-height: 28px;
+    height: 28px;
+    vertical-align: top;
+}

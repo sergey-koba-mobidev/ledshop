@@ -12,8 +12,11 @@
       </button>
       <!-- // Menu Toggle Button END -->
 
+      <%= render 'spree/shared/search' %>
       <ul class="topnav pull-left">
-        <li><a href="" class="glyphicons search single-icon"><i></i></a></li>
+        <li>
+          <a href="#" class="glyphicons search single-icon" onclick="$('#topnav-search-form').submit();return false;"><i></i></a>
+        </li>
       </ul>
 
       <ul class="topnav pull-right">

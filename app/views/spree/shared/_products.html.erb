@@ -16,7 +16,7 @@
     </div>
   <% elsif params.key?(:keywords) %>
     <div data-hook="products_search_results_heading_results_found">
-      <h6 class="search-results-title"><%= Spree.t(:search_results, keywords: h(params[:keywords])) %></h6>
+      <h3 class=" heading glyphicons search search-results-title"><i></i> <%= Spree.t(:search_results, keywords: h(params[:keywords])) %></h3>
     </div>
   <% end %>
 </div>
