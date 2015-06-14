@@ -3,9 +3,18 @@ $(function()
 	/* jQRangeSliders */
 	
 	// regular Range Slider
-	$("#rangeSlider").rangeSlider();
-	
-	// edit Range Slider
+	$("#rangeSlider").rangeSlider({
+		bounds: {min: 0, max: parseInt($('#max_product_price').val())},
+		defaultValues:{min: parseInt($('#search_price_range_any_min').val()), max: parseInt($('#search_price_range_any_max').val())}
+	});
+
+	$("#rangeSlider").bind("valuesChanged", function(e, data){
+		$('#search_price_range_any_min').val(parseInt(data.values.min));
+		$('#search_price_range_any_max').val(parseInt(data.values.max));
+	});
+
+
+	/*// edit Range Slider
 	$("#rangeSliderEdit").editRangeSlider();
 	
 	// date Range Slider
@@ -102,5 +111,5 @@ $(function()
     
     // Range Slider Wheel Scroll
     $("#rangeSliderWheelScroll").rangeSlider({wheelMode: "scroll", wheelSpeed: 30});
-
+*/
   });

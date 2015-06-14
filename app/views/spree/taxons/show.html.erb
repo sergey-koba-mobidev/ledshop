@@ -1,10 +1,16 @@
 <% content_for :css_styles do %>
     <link rel="stylesheet" href="/assets/css/front/module.front.page.shop.min.css" />
+    <link rel="stylesheet" href="/assets/css/admin/module.admin.page.sliders.min.css" />
 <% end %>
 
 <% content_for :js_scripts_bottom do %>
     <script src="/assets/components/modules/admin/gallery/gridalicious/assets/lib/jquery.gridalicious.min.js?v=v2.3.0"></script>
     <script src="/assets/components/modules/admin/gallery/gridalicious/assets/custom/gridalicious.init.js?v=v2.3.0"></script>
+
+    <script src="/assets/components/library/jquery-ui/js/jquery-ui.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/sliders/range-sliders/assets/lib/mousewheel/jquery.mousewheel.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/sliders/range-sliders/assets/lib/jqrangeslider/js/jQAllRangeSliders-withRuler-min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/sliders/range-sliders/assets/custom/js/range-sliders.init.js?v=v2.3.0"></script>
 <% end %>
 
 <div class="container-960 innerT">
@@ -50,6 +56,9 @@
       </div>
       <!-- // Widget END -->
 
+      <h3 class="heading glyphicons search"><i></i><%= Spree.t(:filter) %></h3>
+      <%= render partial: 'spree/shared/filters' %>
+
       <!--<div class="widget widget-heading-simple widget-body-inverse">
         <div class="widget-body">
           <div class="glyphicons glyphicon-xlarge glyphicon-top circle_question_mark">
@@ -85,4 +94,3 @@
   </div>
 
 </div>
-    <% # render partial: 'spree/shared/filters' if @taxon.leaf? %>

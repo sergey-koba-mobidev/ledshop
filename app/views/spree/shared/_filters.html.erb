@@ -1,9 +1,20 @@
 <% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
 
+<%
+   max_product_price = 0
+   if @taxon
+    @taxon.products.each do |p|
+      max_product_price = p.price.to_i if p.price.to_i > max_product_price
+    end
+   else
+    max_product_price = Spree::Price.maximum("amount")
+   end
+%>
+
 <% unless filters.empty? %>
   <%= form_tag '', :method => :get, :id => 'sidebar_products_search' do %>
     <%= hidden_field_tag 'per_page', params[:per_page] %>
-    <% filters.each do |filter| %>
+    <!--<% filters.each do |filter| %>
       <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
       <% next if labels.empty? %>
       <div class="navigation" data-hook="navigation">
@@ -22,7 +33,20 @@
           <% end %>
         </ul>
       </div>
-    <% end %>
-    <%= submit_tag Spree.t(:search), :name => nil, :class => 'btn btn-primary' %>
+    <% end %>-->
+        <%= hidden_field_tag 'search[price_range_any][min]', (params[:search].nil? || params[:search][:price_range_any].nil? || params[:search][:price_range_any][:min].nil?)?0:params[:search][:price_range_any][:min] %>
+        <%= hidden_field_tag 'search[price_range_any][max]', (params[:search].nil? || params[:search][:price_range_any].nil? || params[:search][:price_range_any][:max].nil?)?max_product_price:params[:search][:price_range_any][:max] %>
+
+        <h4 class="filter-title"> <%=  Spree.t(:price) %> </h4>
+        <div class="sliderContainer">
+          <div id="rangeSlider"></div>
+        </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= submit_tag Spree.t(:search), :name => nil, :class => 'btn btn-inverse' %>
+      </div>
+    </div>
   <% end %>
+    <%= hidden_field_tag 'max_product_price', max_product_price %>
 <% end %>

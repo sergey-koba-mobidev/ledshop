@@ -24,7 +24,9 @@
 <% if products.any? %>
   <div id="products" data-toggle="gridalicious" data-gridalicious-width="180" data-gridalicious-gutter="0">
     <% products.each do |product| %>
-      <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
+      <%
+         url = spree.product_url(product, taxon_id: @taxon.try(:id))
+      %>
       <div class="widget widget-heading-simple widget-body-gray widget-pinterest product-list-item" id="product_<%= product.id %>" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
           <div class="widget-body padding-none">
             <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
