@@ -193,6 +193,33 @@ module Spree
           conds:  nil # not needed
         }
       end
+
+      # Spree::Product.add_search_scope :selective_simple_scope do |*opts|
+      #   # return default sort if there is many sorts
+      #   cond = Spree::Product.descend_by_master_price.values[:order]
+      #   return Spree::Product.joins(:master).order(cond) if (opts.nil? || opts.length != 1)
+      #
+      #
+      #   cond = ProductFilters.simple_scopes[:conds][opts.shift]
+      #   Spree::Product.joins(:master).order(cond)
+      # end
+      #
+      #
+      # def ProductFilters.simple_scopes
+      #   conds = [ ["Price ascending",   Spree::Product.ascend_by_master_price.values[:order]],
+      #             ["Price descending",  Spree::Product.descend_by_master_price.values[:order]],
+      #             ["Name A-Z",          Spree::Product.ascend_by_name.values[:order]],
+      #             ["Name Z-A",          Spree::Product.descend_by_name.values[:order]],
+      #             ["Popularity",        Spree::Product.descend_by_popularity.values[:order]] ]
+      #   debugger
+      #   {
+      #       name:   'Sort by',
+      #       scope:  :selective_simple_scope,
+      #       labels: conds.map { |k,v| [k, k] },
+      #       conds:  Hash[*conds.flatten]
+      #   }
+      # end
+
     end
   end
 end

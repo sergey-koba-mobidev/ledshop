@@ -42,21 +42,21 @@
 
     <ul class="topnav pull-right">
 
-      <li class="dropdown dd-1 active">
+      <li class="dropdown dd-1 <%= 'active' if current_controller?('spree/taxons') || current_controller?('spree/products') %>">
         <a href="" data-toggle="dropdown">Продукция <span class="caret"></span></a>
         <ul class="dropdown-menu pull-left category-dropdown">
           <% Spree::Taxonomy.all.each do |taxonomy| %>
               <% taxonomy.taxons.each do |taxon| %>
-                <li><%= link_to taxon.name, seo_url(taxon) %></li>
+                <li class="<%= 'active' if current_taxon?(taxon.permalink) %>"><%= link_to taxon.name, seo_url(taxon) %></li>
               <% end %>
           <% end %>
         </ul>
       </li>
-      <li><a href="<%= main_app.about_path %>">О нас</a></li>
-      <li><a href="<%= main_app.news_path %>">Новости</a></li>
-      <li><a href="<%= main_app.delivery_path %>">Доставка</a></li>
-      <li><a href="<%= main_app.contacts_path %>">Контакты</a></li>
-      <li class="glyphicons cart_in cart-color" id="cart-li">
+      <li class="<%= 'active' if current_controller?('index') && current_action?('about') %>"><a href="<%= main_app.about_path %>">О нас</a></li>
+      <li class="<%= 'active' if current_controller?('news') %>"><a href="<%= main_app.news_path %>">Новости</a></li>
+      <li class="<%= 'active' if current_controller?('index') && current_action?('delivery') %>"><a href="<%= main_app.delivery_path %>">Доставка</a></li>
+      <li class="<%= 'active' if current_controller?('index') && current_action?('contacts') %>"><a href="<%= main_app.contacts_path %>">Контакты</a></li>
+      <li class="glyphicons cart_in cart-color <%= 'active' if current_controller?('spree/orders', 'spree/checkout') %>" id="cart-li">
         <%= link_to '<i></i> '.html_safe, '/cart' %>
       </li>
 
