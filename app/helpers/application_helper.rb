@@ -16,4 +16,9 @@ module ApplicationHelper
     return false if params[:id].nil?
     taxon_names.include?(params[:id])
   end
+
+  def render_snippet(slug)
+    page = Spree::Page.find_by_slug(slug)
+    raw page.body if page
+  end
 end
