@@ -14,9 +14,7 @@
 
 
 <% if @user && @user.errors.any? %>
-    <div class="text-center">
       <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
-    </div>
 <% end %>
 <% if flash[:registration_error] %>
     <div class="text-center">

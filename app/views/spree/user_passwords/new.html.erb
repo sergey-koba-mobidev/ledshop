@@ -12,9 +12,7 @@
 <% end %>
 
 <% if @spree_user && @spree_user.errors.any? %>
-    <div class="text-center">
       <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
-    </div>
 <% end %>
 
 <!-- Wrapper -->

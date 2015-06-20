@@ -55,3 +55,7 @@ body.login #login .wrapper {
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
+
+#errorExplanation ul{
+    padding-left: 20px;
+}

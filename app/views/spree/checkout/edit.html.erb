@@ -15,9 +15,7 @@
 
   <% if @order && @order.errors.any? %>
       <div class="separator bottom"></div>
-      <div class="text-center">
         <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
-      </div>
   <% end %>
 
   <div class="separator bottom"></div>
