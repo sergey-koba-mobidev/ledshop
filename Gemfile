@@ -14,6 +14,7 @@ gem 'spree', github: 'spree/spree', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n', branch: '3-0-stable'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content', branch: '3-0-stable'
+gem 'spree_contact_us', :github => 'jdutil/spree_contact_us', branch: '3-0-stable'
 
 group :development, :test do
   gem 'byebug'

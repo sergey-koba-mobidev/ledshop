@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/jdutil/spree_contact_us.git
+  revision: 3876813daf2b424b4681638734f0ff5a25a438cc
+  branch: 3-0-stable
+  specs:
+    spree_contact_us (2.2.0)
+      spree_core (~> 3.0.0)
+
+GIT
   remote: git://github.com/spree-contrib/spree_i18n.git
   revision: c525b33212fe471e0eb55734d550a6ba5b823911
   branch: 3-0-stable
@@ -363,6 +371,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spree!
   spree_auth_devise!
+  spree_contact_us!
   spree_i18n!
   spree_static_content!
   spring

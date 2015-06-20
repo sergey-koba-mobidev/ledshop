@@ -1,0 +1,18 @@
+ru:
+  spree:
+    activemodel:
+      attributes:
+        contact_us/contact:
+          name: "Имя"
+          email: "Email"
+          message: "Сообщение"
+          subject: "Тема"
+    contact_us_title: "Контакты"
+    sent_by_contact_form: "Сообщение от %{email}"
+    sent_by_name: "Сообщение от %{name} - %{email}"
+    subject: "Обратная связь от %{email}"
+    submit: "Отправить сообщение"
+
+    contact_us:
+      notices:
+        success: "Ваше сообщение было успешно отправлено!"

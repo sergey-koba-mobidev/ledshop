@@ -13,15 +13,19 @@
   <h3 class="glyphicons google_maps"><i></i>Контакты</h3>
   <div class="separator bottom"></div>
 
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @contact } %>
+
   <div class="row">
     <div class="col-md-7">
-      <form class="row margin-none">
+      <%= form_for @contact, :url => contacts_path, :html => { :novalidate => '', class: 'row margin-none'} do |f| %>
         <div class="row">
           <div class="col-md-6">
-            <input type="text" class="form-control col-md-12" name="name" placeholder="YOUR NAME">
+            <% if SpreeContactUs.require_name %>
+                <%= f.text_field :name, class: 'form-control col-md-12 required', placeholder: 'Ваше Имя' %>
+            <% end %>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control col-md-12" name="phone" placeholder="PHONE">
+            <%= f.email_field :email, class: 'form-control col-md-12 required email', placeholder: 'Ваш E-Mail' %>
           </div>
         </div>
 
@@ -29,16 +33,16 @@
 
         <div class="row">
           <div class="col-md-12">
-            <textarea name="message" class="form-control" rows="5" placeholder="YOUR MESSAGE"></textarea>
+            <%= f.text_area :message, class: 'form-control required', rows: 5, placeholder: 'Ваше сообщение' %>
           </div>
         </div>
 
         <div class="separator bottom"></div>
 
         <div class="right">
-          <button class="btn btn-primary btn-icon glyphicons envelope"><i></i> Send message</button>
+          <%= f.button content_tag(:i) + 'Отправить сообщение', :id => 'contact_us_contact_submit', class: 'btn btn-primary btn-icon glyphicons envelope' %>
         </div>
-      </form>
+      <% end %>
     </div>
 
     <%= render_snippet('/contacts_page') %>

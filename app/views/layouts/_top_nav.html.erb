@@ -55,7 +55,7 @@
       <li class="<%= 'active' if current_controller?('index') && current_action?('about') %>"><a href="<%= main_app.about_path %>">О нас</a></li>
       <li class="<%= 'active' if current_controller?('news') %>"><a href="<%= main_app.news_path %>">Новости</a></li>
       <li class="<%= 'active' if current_controller?('index') && current_action?('delivery') %>"><a href="<%= main_app.delivery_path %>">Доставка</a></li>
-      <li class="<%= 'active' if current_controller?('index') && current_action?('contacts') %>"><a href="<%= main_app.contacts_path %>">Контакты</a></li>
+      <li class="<%= 'active' if current_controller?('spree/contact_us/contacts') %>"><a href="<%= contact_us_path %>">Контакты</a></li>
       <li class="glyphicons cart_in cart-color <%= 'active' if current_controller?('spree/orders', 'spree/checkout') %>" id="cart-li">
         <%= link_to '<i></i> '.html_safe, '/cart' %>
       </li>
