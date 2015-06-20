@@ -22,7 +22,7 @@
           <div id="rangeSlider"></div>
         </div>
 
-        <!--<% filters.each do |filter| %>
+        <% filters.each do |filter| %>
             <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
             <% next if labels.empty? %>
             <div class="navigation" data-hook="navigation">
@@ -31,7 +31,7 @@
                 <% labels.each do |nm,val| %>
                     <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
                     <li class="list-group-item">
-                      <input type="checkbox"
+                      <input type="radio"
                              id="<%= label %>"
                              name="search[<%= filter[:scope].to_s %>][]"
                              value="<%= val %>"
@@ -41,7 +41,7 @@
                 <% end %>
               </ul>
             </div>
-        <% end %>-->
+        <% end %>
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">

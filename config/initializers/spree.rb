@@ -20,15 +20,15 @@ end
 
 Spree.user_class = "Spree::User"
 
-# Spree::Taxon.class_eval do
-#   # indicate which filters should be used for a taxon
-#   # this method should be customized to your own site
-#   def applicable_filters
-#     fs = []
-#     #fs << Spree::Core::ProductFilters.taxons_below(self) unless self.root?
-#     fs << Spree::Core::ProductFilters.simple_scopes if Spree::Core::ProductFilters.respond_to?(:simple_scopes)
-#     fs << Spree::Core::ProductFilters.price_filter if Spree::Core::ProductFilters.respond_to?(:price_filter)
-#     fs << Spree::Core::ProductFilters.brand_filter if Spree::Core::ProductFilters.respond_to?(:brand_filter)
-#     fs
-#   end
-# end
+Spree::Taxon.class_eval do
+  # indicate which filters should be used for a taxon
+  # this method should be customized to your own site
+  def applicable_filters
+    fs = []
+    #fs << Spree::Core::ProductFilters.taxons_below(self) unless self.root?
+    fs << Spree::Core::ProductFilters.simple_scopes if Spree::Core::ProductFilters.respond_to?(:simple_scopes)
+    #fs << Spree::Core::ProductFilters.price_filter if Spree::Core::ProductFilters.respond_to?(:price_filter)
+    #fs << Spree::Core::ProductFilters.brand_filter if Spree::Core::ProductFilters.respond_to?(:brand_filter)
+    fs
+  end
+end
