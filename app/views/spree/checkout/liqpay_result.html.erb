@@ -1,0 +1,20 @@
+<% content_for :css_styles do %>
+    <link rel="stylesheet" href="/assets/css/front/module.front.page.about.min.css" />
+<% end %>
+
+<% content_for :js_scripts_bottom do %>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/lib/js/jquery.uniform.min.js?v=v2.3.0"></script>
+    <script src="/assets/components/modules/admin/forms/elements/uniform/assets/custom/js/uniform.init.js?v=v2.3.0"></script>
+<% end %>
+
+<script>
+    $(function() {
+        setInterval(function(){
+            $.getJSON('<%= liqpay_status_order_checkout_url(@order, format: :json) %>', function(data) {
+                if (data.completed) location.reload();})}, 500)});
+</script>
+<div id="liqpay_spinner" class="order-wait">
+  <!-- Here is the best place for some exciting animation -->
+  <span class="glyphicons refresh gly-spin"><i></i></span>
+
+</div>
