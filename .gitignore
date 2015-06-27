@@ -46,7 +46,6 @@
 .metadata
 .rvmrc
 .vagrant/
-config/database.yml
 coverage
 db/*.sqlite3
 db/schema.rb

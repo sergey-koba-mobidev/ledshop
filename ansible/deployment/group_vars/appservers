@@ -1,0 +1,21 @@
+monit_services:
+    # ssh
+    - name: sshd
+      type: process
+      target: /var/run/sshd.pid
+      start: /usr/sbin/service ssh start
+      stop: /usr/sbin/service ssh start
+      rules:
+        - "if failed port 22 protocol ssh then restart"
+        - "if 5 restarts within 5 cycles then timeout"
+    # nginx
+    - name: nginx
+      type: process
+      target: /var/run/nginx.pid
+      start: /etc/init.d/nginx start
+      stop: /etc/init.d/nginx stop
+      rules:
+        #- "if failed port 80 protocol http then restart"
+        - "if children > 250 then restart"
+        - "if loadavg(5min) greater than 10 for 8 cycles then stop"
+        - "if 5 restarts within 5 cycles then timeout"

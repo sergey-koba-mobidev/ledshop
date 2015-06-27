@@ -1,0 +1,39 @@
+---
+- name: Remove apache2, nginx and passenger
+  apt: name={{ item }} state=absent
+  with_items:
+    - apache2
+    - nginx
+    - passenger
+
+- name: Install Passenger PGP key
+  apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7' state=present
+
+- name: Add HTTPS support for apt
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+- name: Find ubuntu/debian distro short name
+  shell: >
+    lsb_release -c | cut -d: -f2 | sed 's/\s//g'
+  register: distro
+
+- name: Add passenger source
+  template: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=0600
+
+- name: Update
+  apt: update_cache=yes
+
+- name: Install packages
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - nginx-extras
+    - passenger
+
+- name: Copy nginx config
+  template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+
+- name: Restart nginx
+  service: name=nginx state=restarted

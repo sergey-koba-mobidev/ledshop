@@ -1,0 +1,5 @@
+---
+# defaults file for ansible-nginx-passenger
+worker_processes: 4
+rbenv_root: "/opt/rbenv"
+app_user: root

@@ -1,0 +1,28 @@
+---
+# file: appservers.yml
+- hosts: appservers
+  sudo: yes
+  vars_files:
+    - vars/general.yml
+    - vars/monit.yml
+    - group_vars/appservers
+  roles:
+    - sysinit
+    - app
+    - role: ANXS.postgresql
+      postgresql_ext_install_contrib: yes
+      postgresql_databases:
+        - name: ledshop_db
+      postgresql_users:
+        - name: ledshop_user
+          pass: GWka3xe05G
+          encrypted: no
+      postgresql_user_privileges:
+        - name: ledshop_user
+          db: ledshop_db
+          priv: "ALL"
+          role_attr_flags: "CREATEDB"
+    - znzj.rbenv
+    - ChengLong.nginx-passenger
+    - configure_nginx
+    - pgolm.monit

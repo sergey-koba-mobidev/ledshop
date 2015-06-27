@@ -1,0 +1,23 @@
+- name: Create a directory for ssl certificates /etc/nginx/ssl
+  file: path=/etc/nginx/ssl state=directory
+
+- name: Copy SSL key
+  copy: src=ssl/nginx.key dest=/etc/nginx/ssl/nginx.key owner=root group=root mode=0644
+
+- name: Copy SSL certificate
+  copy: src=ssl/nginx.crt dest=/etc/nginx/ssl/nginx.crt owner=root group=root mode=0644
+
+- name: Copy Nginx htpasswd
+  copy: src=htpasswd dest=/etc/nginx/htpasswd owner={{ app_user }} group={{ app_user }} mode=0644
+
+- name: Copy nginx sites-available/default
+  template: src=default.j2 dest=/etc/nginx/sites-available/default owner=root group=root mode=0644
+
+- name: Copy nginx sites-available/app
+  template: src=app.j2 dest=/etc/nginx/sites-available/app owner=root group=root mode=0644
+
+- name: Create symlink to app
+  file: src=/etc/nginx/sites-available/app dest=/etc/nginx/sites-enabled/app state=link
+
+- name: Restart nginx
+  service: name=nginx state=restarted

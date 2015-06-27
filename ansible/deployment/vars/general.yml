@@ -1,0 +1,6 @@
+app_path: ~/app
+app_user: root
+
+# Ruby
+rbenv_root: "/opt/rbenv"
+rbenv_ruby_version: "2.2.0"

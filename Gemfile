@@ -18,6 +18,10 @@ gem 'spree_contact_us', :github => 'jdutil/spree_contact_us', branch: '3-0-stabl
 gem 'spree_editor', github: 'spree-contrib/spree_editor', branch: '3-0-stable'
 gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
 
+gem "capistrano-rails"
+gem "capistrano-rbenv"
+gem "capistrano3-delayed-job", "~> 1.0"
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
