@@ -1,0 +1,26 @@
+# Add the user 'app_user'
+- name: Create leduser user
+  user: name={{ app_user }} comment="LEDSHOP user"
+
+# Add to groups
+- name: Set user groups and shell
+  user: name={{ app_user }} groups={{ app_user }},root,sudo shell=/bin/bash
+
+- name: Create .ssh dir
+  file: path=/home/{{ app_user }}/.ssh state=directory owner={{ app_user }} group={{ app_user }} mode=0700
+
+# Using key data from a local file on the management machine
+- name: Add authorized key
+  authorized_key: user={{ app_user }} key="{{ lookup('file', 'leduser/id_rsa.pub') }}"
+
+# Add SSH private key to root user
+- name: Copy key to remote deploy user
+  copy: src=leduser/id_rsa dest=/home/{{ app_user }}/.ssh/id_rsa owner={{ app_user }} group={{ app_user }} mode=0600
+
+# Default Bash profile
+- name: Copy bash profile
+  template: src=.bash_profile.j2 dest=/home/{{ app_user }}/.bash_profile owner={{ app_user }} group={{ app_user }} mode=0644
+
+# Copy sudoers file
+- name: Copy sudoers
+  template: src=sudoers.j2 dest=/etc/sudoers owner=root group=root mode=0440

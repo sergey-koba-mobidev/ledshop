@@ -13,8 +13,8 @@ set :rbenv_ruby, '2.2.0'
 set :branch, 'master' # change to deploy branch
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/root/app"
-set :tmp_dir, "/home/root/tmp"
+set :deploy_to, "/home/leduser/app"
+set :tmp_dir, "/home/leduser/tmp"
 
 # Template
 # set :templating_paths, %w(./config/deploy/templates)

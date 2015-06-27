@@ -1,5 +1,5 @@
 app_path: ~/app
-app_user: root
+app_user: leduser
 
 # Ruby
 rbenv_root: "/opt/rbenv"

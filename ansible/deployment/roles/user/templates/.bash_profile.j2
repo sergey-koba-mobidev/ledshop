@@ -1,0 +1,32 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+
+export LD_LIBRARY_PATH=/usr/local/lib
+
+# User specific aliases and functions
+export PS1='\[\033[0;35m\]\h\[\033[0;33m\] \w\[\033[00m\]: '
+alias free="free -m"
+alias update="sudo apt-get update"
+alias install="sudo apt-get install"
+alias upgrade="sudo apt-get upgrade"
+alias remove="sudo apt-get remove"
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias j='jobs -l'
+alias cls='clear'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias vi='vim'
+alias which='/usr/bin/which'
