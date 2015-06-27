@@ -1,2 +1,6 @@
 - name: Create applications directory
   file: path={{ app_path }} state=directory
+
+# Add SSH private key to root user
+- name: Copy key to remote deploy user
+  copy: src=keys/id_rsa dest=/home/{{ app_user }}/.ssh/id_rsa owner={{ app_user }} group={{ app_user }} mode=0600

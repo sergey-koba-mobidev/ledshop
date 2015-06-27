@@ -20,7 +20,6 @@ gem 'spree_liqpay', github: 'kukareka/spree_liqpay'
 
 gem "capistrano-rails"
 gem "capistrano-rbenv"
-gem "capistrano3-delayed-job", "~> 1.0"
 
 group :development, :test do
   gem 'byebug'
