@@ -13,7 +13,7 @@ production:
   username: ledshop_user
   password: GWka3xe05G
 
-production:
+staging:
   <<: *default
   database: ledshop_staging
 
