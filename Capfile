@@ -6,8 +6,6 @@ require 'capistrano/deploy'
 
 #require 'capistrano/capistrano_plugin_template'
 
-require 'capistrano/delayed-job'
-require 'whenever/capistrano'
 
 # Include tasks from other gems included in your Gemfile
 #
