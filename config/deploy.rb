@@ -54,7 +54,7 @@ namespace :deploy do
   end
 
   # Seed database after deploy
-  after :deploy, 'database:seed'
+  # after :deploy, 'database:seed'
 
   # Restart nginx after deploy [web]
   after :deploy, 'nginx:restart'
