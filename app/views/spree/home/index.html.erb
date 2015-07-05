@@ -118,7 +118,7 @@
                        data-y="<%= coords[slide_th][:y] %>"
                        data-speed="<%= coords[slide_th][:speed] %>"
                        data-start="<%= coords[slide_th][:start] %>"
-                       data-easing="easeOutExpo"><a href="<%= spree.product_url(p) %>"><img src="<%= p.images.first.attachment.url(:small) %>" style="width: 100px;" class="thumb containerBg" alt="<%= p.name %>"></a></div>
+                       data-easing="easeOutExpo"><a href="<%= spree.product_url(p) %>"><%= small_image(p, class: "thumb containerBg", alt: p.name) %></a></div>
                 <% slide_th += 1 %>
             <% end %>
         </li>
@@ -150,7 +150,7 @@
                    data-speed="600"
                    data-start="<%= (1100+2500*slide_th).to_s %>"
                    data-easing="easeOutExpo" data-end="<%= (3100+2500*slide_th).to_s %>" data-endspeed="600" data-endeasing="easeInSine" >
-                <a href="<%= spree.product_url(p) %>"><img src="<%= p.images.first.attachment.url(:large) %>" style="width: 500px;" class="thumb containerBg" alt="<%= p.name %>"></a>
+                <a href="<%= spree.product_url(p) %>"><%= large_image(p, class: "thumb containerBg", alt: p.name) %></a>
               </div>
 
               <div class="caption big_white sft stb"

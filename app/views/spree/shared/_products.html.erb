@@ -33,7 +33,7 @@
             <%= link_to large_image(product, itemprop: "image"), url, itemprop: 'url', class: 'thumb' %>
             <div class="description">
               <h5 class="text-uppercase strong"><%= truncate(product.name, length: 60) %></h5>
-              <p><%= strip_tags(product.description).truncate(100, separator: ' ').html_safe %></p>
+              <p><%= strip_tags(product.description).truncate(100, separator: ' ').html_safe if product.description.present? %></p>
               <div class="row">
                 <div class="col-md-8 padding-none">
                   <div class="btn-group btn-group-sm">

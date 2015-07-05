@@ -1,3 +1,7 @@
 - name: Create applications directory
   file: path=/home/{{ app_user }}/app state=directory owner={{ app_user }} group={{ app_user }} mode=0775
 
+- name: Add app logs to logrotate
+  replace: dest=/etc/logrotate.conf
+              regexp="^# system-specific logs may be configured here\s"
+              replace="{{ app_path }}/current/log/*.log {\n daily\n missingok\n rotate 7\n compress\n delaycompress\n notifempty\n copytruncate\n}\n"
