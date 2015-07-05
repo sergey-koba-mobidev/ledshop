@@ -90,7 +90,7 @@
   <div class="separator bottom"></div>
   <div class="widget widget-heading-simple widget-body-gray">
     <div class="widget-head"><h4 class="heading glyphicons warning_sign strong"><i></i>Описание</h4></div>
-    <div class="widget-body"><%= @taxon.description.html_safe %></div>
+    <div class="widget-body"><%= @taxon.description.html_safe if @taxon.description.present? %></div>
   </div>
 
 </div>
