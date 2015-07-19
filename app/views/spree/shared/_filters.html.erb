@@ -4,7 +4,7 @@
    max_product_price = 0
    if @taxon
     @taxon.products.each do |p|
-      max_product_price = p.price.to_i if p.price.to_i > max_product_price
+      max_product_price = p.price.ceil.to_i if p.price.ceil.to_i > max_product_price
     end
    else
     max_product_price = Spree::Price.maximum("amount")
