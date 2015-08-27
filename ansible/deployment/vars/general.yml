@@ -1,4 +1,4 @@
-app_path: ~/app
+app_path: /home/leduser/app
 app_user: leduser
 
 # Ruby
